@@ -49,12 +49,19 @@ if (( length < 2 )); then
     length=2
 fi
 
-# Message borders
-top_edge=" $(head -c $length < /dev/zero | tr '\0' '_')"
-lower_edge=" $(head -c $length < /dev/zero | tr '\0' '-')"
-formatted_message=$(echo "$message" | fold -s -w 80)  # 80 characters per line
-text="| $formatted_message |"
+# Max text width | 80 characters
+MAX_WIDTH=80
+formatted_message=$(echo "$message" | fold -s -w $MAX_WIDTH) # Divides the text into lines without cutting words.
 
+# Determine the longest line to set the border width
+lenght=$(echo "$formatted_message" | awk '{print length}' | sort -nr | head -n 1) # Detects the longest line to generate the correct borders
+
+# Generate edges with exact lenght
+top_edge=" $(head -c $lenght < /dev/zero | tr '\0' '_')"
+lower_edge=" $(head -c $lenght < /dev/zero | tr '\0' '-')"
+
+# Format text with aligned borders
+text=$(echo "$formatted_message" | sed 's/^/| /; s/$/ |/')
 length=${#message}
 
 lain="
