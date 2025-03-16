@@ -1,0 +1,7 @@
+Package: lain-says
+Version: 1.0
+Section: games
+Priority: optional
+Architecture: all
+Maintainer: DamperDoor56 <ludmit@outlook.com>
+Description: A cowsay clon but with computer and science curiosities.
