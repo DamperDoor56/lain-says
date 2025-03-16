@@ -34,7 +34,7 @@ If no message is provided, it will display a random curiosity.
 To build your own `.deb` package, clone the repository and use `dpkg-deb`:
 
 ```bash
-git clone https://github.com/yourusername/lain-says.git
+git clone https://github.com/DamperDoor56/lain-says.git
 cd lain-says
 mkdir -p lain-says-pkg/DEBIAN
 mkdir -p lain-says-pkg/usr/local/bin
@@ -46,7 +46,7 @@ dpkg-deb --build lain-says-pkg
 This will generate `lain-says-pkg.deb`, which can be installed as shown above.
 
 ## Releases
-For the latest `.deb` releases, visit the [Releases](https://github.com/yourusername/lain-says/releases) page.
+For the latest `.deb` releases, visit the [Releases](https://github.com/DamperDoor56/lain-says/releases) page.
 
 ## License
 This project is open-source and released under the MIT License.
