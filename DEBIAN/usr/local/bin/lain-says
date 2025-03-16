@@ -32,10 +32,26 @@ CURIOSITIES_EN=(
 # Select a random curiosity based on language
 RANDOM_INDEX=$((RANDOM % 5))
 if [ "$LANGUAGE" == "es" ]; then
-    RANDOM_MESSAGE="${CURIOSITIES_ES[$RANDOM_INDEX]}"
+    CURIOSITIES="${CURIOSITIES_ES[$RANDOM_INDEX]}"
 else
-    RANDOM_MESSAGE="${CURIOSITIES_EN[$RANDOM_INDEX]}"
+    CURIOSITIES="${CURIOSITIES_EN[$RANDOM_INDEX]}"
 fi
+
+# Get the last index from the global variable
+LAST_INDEX=${LAIN_LAST_INDEX:-"-1"}  # If it doesn't exists assign -1
+NUM_CURIOSITIES=${#CURIOSITIES[@]}  # Total amount of curiosities
+
+
+# Generate a new random index different to the last one
+RANDOM_INDEX=$((RANDOM % NUM_CURIOSITIES))
+while [ "$RANDOM_INDEX" -eq "$LAST_INDEX" ]; do
+    RANDOM_INDEX=$((RANDOM % NUM_CURIOSITIES))
+done
+
+# Save the last index in the variable
+export LAIN_LAST_INDEX=$RANDOM_INDEX  
+
+RANDOM_MESSAGE="${CURIOSITIES[$RANDOM_INDEX]}"
 
 # Generate message
 message="$*"
