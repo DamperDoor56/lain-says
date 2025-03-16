@@ -52,7 +52,9 @@ fi
 # Message borders
 top_edge=" $(head -c $length < /dev/zero | tr '\0' '_')"
 lower_edge=" $(head -c $length < /dev/zero | tr '\0' '-')"
-text="| $message |"
+formatted_message=$(echo "$message" | fold -s -w 80)  # 80 characters per line
+text="| $formatted_message |"
+
 length=${#message}
 
 lain="
