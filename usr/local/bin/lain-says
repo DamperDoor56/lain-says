@@ -1,4 +1,5 @@
 #!/bin/bash
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Detect system language
 LANGUAGE=$(echo $LANG | cut -d'_' -f1)
@@ -13,29 +14,25 @@ done
 # Curiosities in different languages
 declare -A CURIOSITIES_ES CURIOSITIES_EN
 
-CURIOSITIES_ES=(
-    [0]="Recuerda, Linux es solo un kernel, el núcleo central de un sistema operativo que asigna recursos a otras partes del sistema. Linux, junto con el sistema GNU (que está estrechamente asociado con la Free Software Foundation (FSF)), forman en conjunto lo que se conoce como GNU/Linux o, a veces, GNU Linux, constituyendo un sistema operativo completo que es ampliamente utilizado hoy en día por millones de personas en todo el mundo."
-    [1]="En Python, usa 'list comprehensions' para mejor rendimiento."
-    [2]="Aprender regex te ahorrará mucho tiempo con texto."
-    [3]="Una SSD mejora el rendimiento de tu PC más que un HDD."
-    [4]="No uses Wi-Fi para juegos online, usa cable Ethernet."
-)
+# File route based on language
+PHRASES_FILE="$SCRIPT_DIR/phrases-en.txt"
+[[ "$LANGUAGE" == "es" ]] && PHRASES_FILE="$SCRIPT_DIR/phrases-es.txt"
 
-CURIOSITIES_EN=(
-    [0]="Remember that Linux is only a kernel, the central driving force of an operating system that allocates resources to other aspects of the system. Linux, along with the GNU system (which is closely associated with the Free Software Foundation (FSF)) are collectively referred to as GNU/Linux or sometimes GNU Linux, make up a complete operating system which is widely used today by millions of freetards across the world."
-    [1]="In Python, use list comprehensions for better performance."
-    [2]="Learning regex will save you a lot of time with text processing."
-    [3]="An SSD improves your PC performance more than an HDD."
-    [4]="Do not use Wi-Fi for online gaming, use Ethernet cable."
-)
+# Read phrases from file
+IFS=$'\n' read -d '' -r -a CURIOSITIES < "$PHRASES_FILE"
 
-# Select a random curiosity based on language
-RANDOM_INDEX=$((RANDOM % 5))
-if [ "$LANGUAGE" == "es" ]; then
-    CURIOSITIES="${CURIOSITIES_ES[$RANDOM_INDEX]}"
-else
-    CURIOSITIES="${CURIOSITIES_EN[$RANDOM_INDEX]}"
-fi
+NUM_CURIOSITIES=${#CURIOSITIES[@]}
+LAST_INDEX=${LAIN_LAST_INDEX:-"-1"}
+
+# Random choice!
+RANDOM_INDEX=$((RANDOM % NUM_CURIOSITIES))
+while [ "$RANDOM_INDEX" -eq "$LAST_INDEX" ]; do
+    RANDOM_INDEX=$((RANDOM % NUM_CURIOSITIES))
+done
+
+export LAIN_LAST_INDEX=$RANDOM_INDEX
+RANDOM_MESSAGE="${CURIOSITIES[$RANDOM_INDEX]}"
+
 
 # Get the last index from the global variable
 LAST_INDEX=${LAIN_LAST_INDEX:-"-1"}  # If it doesn't exists assign -1

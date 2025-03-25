@@ -2,6 +2,6 @@ Package: lain-says
 Version: 1.0.1
 Section: games
 Priority: optional
-Architecture: all
+Architecture: amd64
 Maintainer: DamperDoor56 <ludmit@outlook.com>
 Description: A cowsay clon but with computer and science curiosities.
