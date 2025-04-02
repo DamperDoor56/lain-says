@@ -15,3 +15,31 @@ CPUs are capable of performing various tasks, they may include operating systems
 CPUs can manage to run several programs at once because of the thread allocation to several tasks.
 The Graphics Processing Unit (GPU) is designed for parallel processing and it uses dedicated memory known as VRAM (Video RAM). They are designed to tackle thousands of operations at once for tasks like rendering images, 3D rendering, processing video, and running machine learning models. It has it’s own memory separate from the system’s RAM which allows them to handle complex, high-throughput tasks like rendering and AI processing efficiently.
 API full form is an Application Programming Interface that is a collection of communication protocols and subroutines used by various programs to communicate between them.
+The world is full of fascinating problems waiting to be solved
+SATA (as in SATA cables, SATA ports, and SATA connectors) is a type of connector used in your PC to connect your motherboard to your hard disk drives (HDDs) and solid state drives (SSDs). That is, in order to install a new HDD or SDD in your computer, you need to connect it to the motherboard using a SATA data cable to one of the available SATA ports on the motherboard, and use a SATA power cable to connect the drive to the PSU (power supply unit).
+You might have heard of chmod 777. This command will give read, write and execute permission to the owner, group and public.
+Is command in Linux is commonly used to identify the files and directories in the working directory. This command is one of the many often-used Linux commands that you should know.pwd command in Linux
+The pwd command is mostly used to print the current working directory on your terminal.
+This mkdir command allows you to create fresh directories in the terminal itself. The default syntax is mkdir <directory name> and the new directory will be created.
+The cd command is used to navigate between directories. It requires either the full path or the directory name, depending on your current working directory. If you run this command without any options, it will take you to your home folder. Keep in mind that it can only be executed by users with sudo privileges.
+The rmdir command is used to delete permanently an empty directory. To perform this command the user running this command must be having sudo privileges in the parent directory. 
+The cp command of Linux is equivalent to copy-paste and cut-paste in Windows. 
+The mv command is generally used for renaming the files in Linux.
+rm command in Linux is generally used to delete the files created in the directory. 
+The uname command is used to check the complete OS information of the system.
+The touch command creates an empty file when put in the terminal in this format as touch <file name> 
+The ln command is used to create a shortcut link to another file.
+The cat command is the simplest command to use when you want to see the contents of a particular file. The only issue is that it simply unloads the entire file to your terminal
+The clear command is a standard command to clear the terminal screen.
+ps command in Linux is used to check the active processes in the terminal.
+The man command displays a user manual for any commands or utilities available in the Terminal, including their name, description, and options. man <command name>
+The grep command is used to find a specific string in a series of outputs. For example, if you want to find a string in a file, you can use the syntax: <Any command with output> | grep "<string to find>". eg: cat README.md | grep "package"
+echo command in Linux is specially used to print something in the terminal
+The wget command in the Linux command line allows you to download files from the internet. It runs in the background and does not interfere with other processes. Here is the basic syntax: wget [option] [url] wget http://sample.com/sample-menu.php
+The whoami command provides basic information that is extremely useful when working on multiple systems. In general, if you are working with a single computer, you will not require it as frequently as a network administrator.
+The sort command is used generally to sort the output of the file.
+The cal command is not the most famous command in the terminal but it functions to view the calendar for a particular month in the terminal.
+whereis command in Linux is generally used to see the exact location of any command typed after this.
+df command in Linux gets the details of the file system.
+wc command in Linux indicates the number of words, characters, lines, etc using a set of options. wc -w shows the number of words, wc -l shows the number of lines, wc -m shows the number of characters present in a file
+The first ever Linux kernel just occupied only 65 KB.
