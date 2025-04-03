@@ -43,7 +43,10 @@ cp control postinst postrm lain-says-pkg/DEBIAN/
 dpkg-deb --build lain-says-pkg
 ```
 
-This will generate `lain-says-pkg.deb`, which can be installed as shown above.
+This will generate `lain-says-pkg.deb`, which can be installed with this command.
+```bash
+sudo dpkg -i lain-says-pkg.deb
+```
 
 ## Releases
 For the latest `.deb` releases, visit the [Releases](https://github.com/DamperDoor56/lain-says/releases) page.
