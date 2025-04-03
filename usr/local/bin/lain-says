@@ -64,7 +64,7 @@ fi
 
 # Max text width | 80 characters
 MAX_WIDTH=80
-formatted_message=$(echo "$message" | fold -s -w $MAX_WIDTH) # Divides the text into lines without cutting words.
+formatted_message=$(echo "$message" | fold -s -w $MAX_WIDTH)
 
 # Determine the longest line to set the border width
 lenght=$(echo "$formatted_message" | awk '{print length}' | sort -nr | head -n 1) # Detects the longest line to generate the correct borders
@@ -73,9 +73,12 @@ lenght=$(echo "$formatted_message" | awk '{print length}' | sort -nr | head -n 1
 top_edge=" $(head -c $lenght < /dev/zero | tr '\0' '_')"
 lower_edge=" $(head -c $lenght < /dev/zero | tr '\0' '-')"
 
-# Format text with aligned borders
-text=$(echo "$formatted_message" | sed 's/^/| /; s/$/ |/')
-length=${#message}
+# Format text with spaces and aligned borders
+text=$(echo "$formatted_message" | while IFS= read -r line; do
+    padding=$(( lenght - ${#line} ))
+    printf "| %s%*s |\n" "$line" "$padding" ""
+done)
+
 
 lain="
                           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    
