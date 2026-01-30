@@ -2,6 +2,12 @@
 
 Lain-Says is a fun command-line tool inspired by cowsay, but with Lain from Serial Experiments Lain. It displays random sofware, hardware and science curiosities along with an ASCII representation of Lain.
 
+## Run locally
+
+```bash
+./usr/local/bin/lain-says
+```
+
 ## Installation
 
 ### Installing from `.deb`
@@ -38,8 +44,10 @@ git clone https://github.com/DamperDoor56/lain-says.git
 cd lain-says
 mkdir -p lain-says-pkg/DEBIAN
 mkdir -p lain-says-pkg/usr/local/bin
-cp lain-says lain-says-pkg/usr/local/bin/
-cp control postinst postrm lain-says-pkg/DEBIAN/
+cp usr/local/bin/lain-says lain-says-pkg/usr/local/bin/
+cp DEBIAN/control DEBIAN/postinst DEBIAN/postrm lain-says-pkg/DEBIAN
+cp usr/local/bin/phrases-en.txt lain-says-pkg/usr/local/bin
+cp usr/local/bin/phrases-es.txt lain-says-pkg/usr/local/bin
 dpkg-deb --build lain-says-pkg
 ```
 
