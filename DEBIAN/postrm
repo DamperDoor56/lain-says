@@ -1,2 +1,4 @@
 #!/bin/bash
-rm -f /usr/local/bin/lain-says
+if [ "$1" = "remove" ]; then
+    rm -f /usr/local/bin/lain-says
+fi
