@@ -2,6 +2,12 @@
 
 Lain-Says is a fun command-line tool inspired by cowsay, but with Lain from Serial Experiments Lain. It displays random sofware, hardware and science curiosities along with an ASCII representation of Lain.
 
+## Run locally
+
+```bash
+./usr/local/bin/lain-says
+```
+
 ## Installation
 
 ### Installing from `.deb`
